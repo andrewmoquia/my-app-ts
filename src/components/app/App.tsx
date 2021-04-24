@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import "./App.scss"
 import {Store} from '../store/Store'
 
