@@ -1,13 +1,23 @@
 import React from 'react'
 
-const inititalState = {}
+interface IState {
+    episodes: [],
+    favorites: []
+}
 
-export const Store = React.createContext(inititalState);
+const inititalState: IState = {
+    episodes: [],
+    favorites: []
+}
+
+export const Store = React.createContext<IState>(inititalState);
 
 function reducer() {
 
 }
 
 export function StoreProvider(props: any): JSX.Element {
-    return <Store.Provider value='test'>{props.children}</Store.Provider> //value is passed through every component
+    return (
+      <Store.Provider value={inititalState}>{props.children}</Store.Provider>
+    ); //value is passed through every component
 }

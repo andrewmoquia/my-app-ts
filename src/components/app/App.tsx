@@ -4,6 +4,7 @@ import {Store} from '../store/Store'
 
 function App() {
   const store = React.useContext(Store)
+  console.log(store)
   return (
     <React.Fragment>
       <h1>Rick and Morty!</h1>
