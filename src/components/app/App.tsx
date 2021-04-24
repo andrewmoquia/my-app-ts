@@ -1,7 +1,9 @@
-import React, {useState, useEffect} from 'react'
-import "./App.scss";
+import React, {useContext} from 'react'
+import "./App.scss"
+import {Store} from '../store/Store'
 
 function App() {
+  const store = React.useContext(Store)
   return (
     <React.Fragment>
       <h1>Rick and Morty!</h1>
