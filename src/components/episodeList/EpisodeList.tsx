@@ -22,11 +22,9 @@ export default function EpisodeList(props: any): Array<JSX.Element> {
             type="button"
             onClick={() => toogleFavoriteAction(episode)}
           >
-            {state.favorites.includes(episode) ? (
-              <BookmarkHeartFill className="fav-icon" fill={"red"} />
-            ) : (
-              <BookmarkHeart className="fav-icon" />
-            )}
+            {state.favorites.includes(episode) 
+            ? <BookmarkHeartFill className="fav-icon" fill={"red"} />
+            : <BookmarkHeart className="fav-icon" />}
           </button>
         </div>
       </section>

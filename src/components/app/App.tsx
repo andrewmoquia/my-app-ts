@@ -1,7 +1,7 @@
 import React from 'react'
 import "./App.scss"
 import { Store } from "../store/Store";
-import { IAction, IEpisode } from "../../container/interfaces"
+import { IAction, IEpisode, IEpisodeProps } from "../../container/interfaces";
 
 const EpisodeList = React.lazy<any>( () => import("../episodeList/EpisodeList") )
 
@@ -14,6 +14,7 @@ function App() {
   })
 
   const fetchDataAction = async () => {
+
     const URL = 'https://api.tvmaze.com/singlesearch/shows?q=rick-&-morty&embed=episodes'
     const data = await fetch(URL)
     const dataJSON = await data.json()
@@ -38,11 +39,11 @@ function App() {
     }
     return dispatch(dispatchObj)
   }
-   
-  const props = {
+
+  const props: IEpisodeProps = {
     state: state,
-    toogleFavoriteAction
-  }
+    toogleFavoriteAction,
+  };
 
   console.log(state)
   return (

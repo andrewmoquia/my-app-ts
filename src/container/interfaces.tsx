@@ -22,3 +22,8 @@ export interface IEpisode {
   type: string;
   url: string;
 }
+
+export interface IEpisodeProps {
+  state: IState;
+  toogleFavoriteAction: (episode: IEpisode) => IAction;
+}
