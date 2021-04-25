@@ -1,4 +1,4 @@
-#episodes-layout {
+#episodes-layout, #loading-layout {
     max-width: 100vw;
     display: flex;
     align-items: center;
@@ -22,5 +22,15 @@
     }
     .fav-icon:hover {
         color: red;
+    }
+}
+
+#header {
+    max-width: 100vw;
+    height: 80px;
+    display: flex;
+    align-items: flex-end;  
+    h1, h2{
+        margin: 0 10px 10px 10px;
     }
 }

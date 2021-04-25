@@ -1,11 +1,12 @@
 import React from 'react'
 import "./App.scss"
 import { Store } from "../store/Store";
-import { BookmarkHeart, BookmarkHeartFill } from "react-bootstrap-icons";
-import { IAction, IEpisode } from "../../container/interfaces";
+import { IAction, IEpisode } from "../../container/interfaces"
 
+const EpisodeList = React.lazy<any>( () => import("../episodeList/EpisodeList") )
 
 function App() {
+
   const {state, dispatch} = React.useContext(Store)
 
   React.useEffect( () => {
@@ -38,42 +39,26 @@ function App() {
     return dispatch(dispatchObj)
   }
    
+  const props = {
+    state: state,
+    toogleFavoriteAction
+  }
+
   console.log(state)
   return (
     <React.Fragment>
-      <h1>Rick and Morty!</h1>
-      <p>Pick your favorite episode!</p>
-      <article id="episodes-layout">
-        {state.episodes.map((episode: IEpisode) => {
-          return (
-            <section key={episode.id} className="episode-box">
-              <img
-                src={episode.image ? episode.image.medium : ""}
-                alt={`Rick and Morty ${episode.name}`}
-              />
-              <p>
-                <b>{episode.name}</b>
-              </p>
-              <p>
-                Season: {episode.season} Episode: {episode.number}
-              </p>
-              <div>
-                <button
-                  className="fav-button"
-                  type="button"
-                  onClick={() => toogleFavoriteAction(episode)}
-                >
-                  {
-                    state.favorites.includes(episode) 
-                      ? <BookmarkHeartFill className="fav-icon"  />
-                      : <BookmarkHeart className="fav-icon" />
-                  }
-                </button>
-              </div>
-            </section>
-          );
-        })}
-      </article>
+      <section id="header">
+        <h1>Rick and Morty!</h1>
+        <h2>Pick your favorite episode!</h2>
+        <br />
+        <h2>My Favorites: {state.favorites.length}</h2>
+      </section>
+      <hr/>
+      <React.Suspense fallback={<div id="loading-layout"><h1>Loading....</h1>.</div>}>
+        <article id="episodes-layout">
+          <EpisodeList {...props} />
+        </article>
+      </React.Suspense>
     </React.Fragment>
   );
 }
