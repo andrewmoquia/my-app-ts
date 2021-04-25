@@ -1,0 +1,44 @@
+#episodes-layout {
+  max-width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.episode-box {
+  width: 250px;
+  height: 200px;
+  margin: 0 20px 30px 20px;
+}
+
+.episode-box p {
+  margin: 0;
+}
+
+.episode-box div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.episode-box button {
+  border: none;
+  background: none;
+}
+
+.episode-box .fav-icon:hover {
+  color: red;
+  size: 96;
+}
+/*# sourceMappingURL=App.css.map */
