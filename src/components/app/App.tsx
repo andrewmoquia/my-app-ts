@@ -1,7 +1,7 @@
 import React from 'react'
 import "./App.scss"
 import { Store } from "../store/Store"
-import {Link} from "@reach/router"
+import { Link } from "@reach/router"
 
 function App(props: any) {
 
