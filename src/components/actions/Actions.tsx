@@ -1,4 +1,4 @@
-import { IAction, IEpisode, IState, Dispatch } from "../../container/interfaces";
+import { IEpisode, IState, Dispatch } from "../../container/interfaces";
 
 export const fetchDataAction = async (dispatch: Dispatch) => {
   const URL =
@@ -7,26 +7,31 @@ export const fetchDataAction = async (dispatch: Dispatch) => {
   const dataJSON = await data.json();
   return dispatch({
     type: "FETCH_DATA",
-    payload: dataJSON._embedded.episodes,
+    payload: dataJSON._embedded.episodes
   });
 };
 
 export const toogleFavoriteAction = (episode: IEpisode, dispatch: Dispatch, state: IState) => {
+
   const episodeInFav = state.favorites.includes(episode);
-  const addFavEpisode = [...state.favorites, episode]
-  const dispatchObj = {
+
+  const addFavEpisode = [...state.favorites, episode];
+
+  let dispatchObj = {
     type: "ADD_FAVORITE",
-    payload: addFavEpisode,
+    payload: addFavEpisode
   };
+
   if (episodeInFav) {
     const favWithouthEpisode = state.favorites.filter(
       (fav: IEpisode) => fav.id !== episode.id
     );
-
-    return dispatch({
+    dispatchObj = {
       type: "REMOVE_FAVORITE",
-      payload: favWithouthEpisode,
-    });
+      payload: favWithouthEpisode
+    }
+    return dispatch(dispatchObj);
   }
+
   return dispatch(dispatchObj);
 };

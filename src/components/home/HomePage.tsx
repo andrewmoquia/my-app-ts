@@ -3,9 +3,10 @@ import { IEpisodeProps } from "../../container/interfaces";
 import { Store } from "../store/Store";
 import { fetchDataAction, toogleFavoriteAction } from "../actions/Actions";
 
-const EpisodeList = React.lazy<any>(() => import("../episodeList/EpisodeList"));
+const EpisodeList = React.lazy<any>( () => import("../episodeList/EpisodeList") );
 
 export default function HomePage() {
+  
   const { state, dispatch } = React.useContext(Store);
 
   React.useEffect(() => {
