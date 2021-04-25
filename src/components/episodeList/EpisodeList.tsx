@@ -1,9 +1,11 @@
 import { BookmarkHeart, BookmarkHeartFill } from "react-bootstrap-icons";
-import { IEpisode } from "../../container/interfaces";
+import { IEpisode, IEpisodeProps } from "../../container/interfaces";
 
-export default function EpisodeList(props: any): Array<JSX.Element> {
+export default function EpisodeList(props: IEpisodeProps): Array<JSX.Element> {
+
   const { toogleFavoriteAction, store, episodes } = props;
   const {state, dispatch} = store;
+
   return episodes.map((episode: IEpisode) => {
     return (
       <section key={episode.id} className="episode-box">
@@ -27,4 +29,5 @@ export default function EpisodeList(props: any): Array<JSX.Element> {
       </section>
     );
   });
+  
 }

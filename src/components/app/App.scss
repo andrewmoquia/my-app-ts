@@ -6,7 +6,12 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-
+#favorites-layout{
+  max-width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .episode-box {
   width: 250px;
   height: 200px;

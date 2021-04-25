@@ -13,7 +13,7 @@ export default function FavePage() {
       episodes: state.favorites,
       favorites: state.favorites,
       store: { state, dispatch },
-      toogleFavoriteAction,
+      toogleFavoriteAction
     };
 
     return (
@@ -25,7 +25,7 @@ export default function FavePage() {
             </div>
           }
         >
-          <article id="episodes-layout">
+          <article id="favorites-layout">
             <EpisodeList {...props} />
           </article>
         </React.Suspense>
