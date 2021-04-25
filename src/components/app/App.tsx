@@ -1,7 +1,7 @@
 import React from 'react'
 import "./App.scss"
 import {Store} from '../store/Store'
-
+import { BookmarkHeart } from "react-bootstrap-icons";
 interface IEpisode {
   airdate: string,
   airstamp: string,
@@ -52,6 +52,7 @@ function App() {
               <p>
                 Season: {episode.season} Episode: {episode.number}
               </p>
+              <div><button className="fav-button"><BookmarkHeart className="fav-icon"/></button><button>y</button></div>
             </section>
           );
         })}
