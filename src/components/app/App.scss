@@ -1,0 +1,17 @@
+#episodes-layout {
+    max-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.episode-box {
+    width: 250px;
+    height: 200px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    p {
+        margin: 0;
+    }
+}

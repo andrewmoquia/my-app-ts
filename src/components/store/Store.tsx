@@ -16,7 +16,7 @@ const inititalState: IState = {
     favorites: []
 }
 
-export const Store = React.createContext<IState>(inititalState);
+export const Store = React.createContext<IState | any>(inititalState);
 
 function reducer(state: IState, action: IAction): IState {
   switch (action.type) {
@@ -28,7 +28,10 @@ function reducer(state: IState, action: IAction): IState {
 }
 
 export function StoreProvider(props: any): JSX.Element {
+    const [ state, dispatch ] = React.useReducer(reducer, inititalState);
     return (
-      <Store.Provider value={inititalState}>{props.children}</Store.Provider>
+      <Store.Provider value={{state, dispatch}}>
+        {props.children}
+      </Store.Provider>
     ); //value is passed through every component
 }
