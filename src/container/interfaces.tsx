@@ -24,6 +24,12 @@ export interface IEpisode {
 }
 
 export interface IEpisodeProps {
-  state: IState;
-  toogleFavoriteAction: (episode: IEpisode) => IAction;
+  episodes: Array<IEpisode>,
+  favorites: Array<IEpisode>,
+  store: { state: IState; dispatch: any };
+  toogleFavoriteAction: (
+    episode: IEpisode | any,
+    dispatch: any,
+    state: IState
+  ) => IAction;
 }

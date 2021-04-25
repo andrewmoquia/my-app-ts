@@ -2,8 +2,9 @@ import { BookmarkHeart, BookmarkHeartFill } from "react-bootstrap-icons";
 import { IEpisode } from "../../container/interfaces";
 
 export default function EpisodeList(props: any): Array<JSX.Element> {
-  const { toogleFavoriteAction, state } = props;
-  return state.episodes.map((episode: IEpisode) => {
+  const { toogleFavoriteAction, store, episodes } = props;
+  const {state, dispatch} = store;
+  return episodes.map((episode: IEpisode) => {
     return (
       <section key={episode.id} className="episode-box">
         <img
@@ -16,7 +17,7 @@ export default function EpisodeList(props: any): Array<JSX.Element> {
           <button
             className="fav-button"
             type="button"
-            onClick={() => toogleFavoriteAction(episode)}
+            onClick={() => toogleFavoriteAction(episode, dispatch, state)}
           >
             {state.favorites.includes(episode) 
             ? <BookmarkHeartFill className="fav-icon" fill={"red"} />
