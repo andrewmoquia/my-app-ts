@@ -10,12 +10,8 @@ export default function EpisodeList(props: any): Array<JSX.Element> {
           src={episode.image ? episode.image.medium : ""}
           alt={`Rick and Morty ${episode.name}`}
         />
-        <p>
-          <b>{episode.name}</b>
-        </p>
-        <p>
-          Season: {episode.season} Episode: {episode.number}
-        </p>
+        <p><b>{episode.name}</b></p>
+        <p>Season: {episode.season} Episode: {episode.number}</p>
         <div>
           <button
             className="fav-button"
