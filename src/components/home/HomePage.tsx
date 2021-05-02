@@ -14,7 +14,7 @@ export default function HomePage() {
   });
 
   const props: IEpisodeProps = {
-    episodes: state.episodes,
+    episodes: state.episodes, 
     favorites: state.episodes,
     store: { state, dispatch },
     toogleFavoriteAction
