@@ -1,12 +1,12 @@
-import React from "react";
+import React, { Fragment, Suspense } from "react";
 import { IEpisodeProps } from "../../container/interfaces";
 import { Store } from "../store/Store";
 import { fetchDataAction, toogleFavoriteAction } from "../actions/Actions";
 
-const EpisodeList = React.lazy<any>( () => import("../episodeList/EpisodeList") );
+const EpisodeList = React.lazy<any>(() => import("../episodeList/EpisodeList"));
 
 export default function HomePage() {
-  
+
   const { state, dispatch } = React.useContext(Store);
 
   React.useEffect(() => {
@@ -21,8 +21,8 @@ export default function HomePage() {
   };
 
   return (
-    <React.Fragment>
-      <React.Suspense
+    <Fragment>
+      <Suspense
         fallback={
           <div id="loading-layout">
             <h1>Loading....</h1>
@@ -32,7 +32,7 @@ export default function HomePage() {
         <article id="episodes-layout">
           <EpisodeList {...props} />
         </article>
-      </React.Suspense>
-    </React.Fragment>
+      </Suspense>
+    </Fragment>
   );
 }
